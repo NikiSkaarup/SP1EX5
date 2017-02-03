@@ -41,7 +41,8 @@ public class MonitorClient {
             ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());
             os.flush();
             String msg = "monitor";
-            String[] msgs = {"monitor", "monitor1", "monitor2"};
+            String[] msgs = {"monitor", msg + "1", msg + "2", msg + "3", msg
+                    + "4"};
 
 
             os.writeUTF(msg);
@@ -50,7 +51,7 @@ public class MonitorClient {
             Random r = new Random();
             t.start();
             for (int i = 0; i < 10000; i++) {
-                String tmp = msgs[r.nextInt(msgs.length)];
+                String tmp = msgs[i % msgs.length];
                 os.writeUTF(tmp);
                 os.flush();
                 System.out.println(tmp);

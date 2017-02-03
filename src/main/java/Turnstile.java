@@ -1,6 +1,4 @@
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.Socket;
 
 /**
@@ -8,7 +6,7 @@ import java.net.Socket;
  *
  * @author Niki
  */
-public class Turnstile  {
+public class Turnstile {
 
     private String name;
 
@@ -42,7 +40,6 @@ public class Turnstile  {
                 e.printStackTrace();
             }
         }
-
         return os;
     }
 
